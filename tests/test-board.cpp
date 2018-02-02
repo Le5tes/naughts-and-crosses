@@ -47,5 +47,26 @@ SCENARIO("Board"){
 			}
 		}
 	}
+	GIVEN("A different board"){
+		Board board;
+		char x('X');
+		
+		WHEN("the winning move is played producing a diagonal of Xs from 0,0 to 2,2"){
+			board.setPosition(0,0,x);
+			board.setPosition(1,1,x);
+			board.setPosition(2,2,x);
+			THEN("board.winner should be the winner"){
+				REQUIRE(board.winner() == x);
+			}
+		}
+		WHEN("the winning move is played producing a diagonal of Xs from 0,0 to 2,2"){
+			board.setPosition(0,2,x);
+			board.setPosition(1,1,x);
+			board.setPosition(2,0,x);
+			THEN("board.winner should be the winner"){
+				REQUIRE(board.winner() == x);
+			}
+		}
+	}
 }
 

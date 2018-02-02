@@ -24,14 +24,17 @@ public:
 		else if(char response = checkVerticals()){
 			return response;
 		}
+		else if(char response = checkDiagonals()){
+			return response;
+		}
 		else{
 			return 0;
 		}
 	}
 private:
 	char checkThree(char* array){
-		if (array[1] == array[2] and array[1] == array[0]){
-			return array[1];
+		if (array[0] == array[1] and array[1] == array[2]){
+			return array[0];
 		} else {
 			return 0;
 		}
@@ -56,6 +59,24 @@ private:
 			}
 		} 
 		return 0;
+	}
+	char checkDiagonals(){
+		char array[3] = {};
+		for(char i=0; i<3; i++){	
+			array[i] = m_array[i][i];
+		}
+		if(char response = checkThree(array)){
+			return response;
+		}
+
+		for(char i=0; i<3; i++){	
+			array[i] = m_array[2-i][i];
+		}
+		if(char response = checkThree(array)){
+			return response;
+		}
+		
+		return 0;		
 	}
 
 };
