@@ -48,17 +48,4 @@ SCENARIO("Board"){
 		}
 	}
 }
-SCENARIO("Private method checkThree works"){
-	GIVEN("a board and an array of 3 chars"){
-		Board board;
-		char array[3];
-		WHEN("The three elements are the same"){
-			array[0] = 5;
-			array[1] = 5;
-			array[2] = 5;
-			THEN("The element is returned"){
-				REQUIRE(board.checkThree(array) == 5);
-			}
-		}
-	}
-}
+
