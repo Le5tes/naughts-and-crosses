@@ -1,4 +1,3 @@
-#include <iostream>
 class Board{
 private:
 	char m_array[3][3] = {};
@@ -31,7 +30,6 @@ public:
 	}
 private:
 	char checkThree(char* array){
-		std::cout << "\n" << array[0] << array[1] << array[2] <<"\n";
 		if (array[1] == array[2] and array[1] == array[0]){
 			return array[1];
 		} else {
