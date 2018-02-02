@@ -1,8 +1,6 @@
 #include "boardPrinter.h"
 class Board{
-private:
-	char m_array[3][3] = {};
-	BoardPrinter printer; 
+
 public:
 	Board(){
 		//The board should be empty on startup
@@ -37,7 +35,11 @@ public:
 	void print(){
 		printer.print(m_array);
 	}
+	
 private:
+	char m_array[3][3] = {};
+	BoardPrinter printer; 
+
 	char checkThree(char* array){
 		if (array[0] == array[1] and array[1] == array[2]){
 			return array[0];
