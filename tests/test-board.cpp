@@ -33,7 +33,7 @@ SCENARIO("Board"){
 				REQUIRE(board.winner() == 0);
 			}
 		}
-		WHEN("the winning move is played"){
+		WHEN("the winning move is played producing a row of Xs"){
 			board.setPosition(2,1,x);
 			THEN("board.winner should be the winner"){
 				REQUIRE(board.winner() == x);
