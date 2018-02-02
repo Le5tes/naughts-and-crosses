@@ -19,7 +19,15 @@ public:
 	}
 
 	char winner(){
-		return checkHorizonals();
+		if(char response = checkHorizonals()){
+			return response;
+		}
+		else if(char response = checkVerticals()){
+			return response;
+		}
+		else{
+			return 0;
+		}
 	}
 // private:
 	char checkThree(char* array){
@@ -33,10 +41,23 @@ public:
 
 	char checkHorizonals(){
 		for(int i = 0; i < 3; i++){
-			if(int response = checkThree(m_array[i])){
+			if(char response = checkThree(m_array[i])){
 				return response;
 			}
 		}
 		return 0;	
 	}
+	char checkVerticals(){
+		for(int j = 0; j < 3; j++){
+			char array[3] = {};
+			for(int i = 0; i < 3; i++){
+				array[i] = m_array[i][j];
+			}
+			if(char response = checkThree(array)){
+				return response;
+			}
+		} 
+		return 0;
+	}
+
 };

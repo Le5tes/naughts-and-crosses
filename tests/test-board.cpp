@@ -27,14 +27,21 @@ SCENARIO("Board"){
 		board.setPosition(2,0,x);
 		board.setPosition(1,1,o);
 		board.setPosition(2,2,x);
-		board.setPosition(1,2,o);
 		WHEN("there aren't any rows of 3 yet"){
 			THEN("board.winner should be null"){
 				REQUIRE(board.winner() == 0);
 			}
 		}
 		WHEN("the winning move is played producing a row of Xs"){
+			board.setPosition(1,2,o);
 			board.setPosition(2,1,x);
+			THEN("board.winner should be the winner"){
+				REQUIRE(board.winner() == x);
+			}
+		}
+		WHEN("the winning move is played producing a column of Xs"){
+			board.setPosition(2,1,o);
+			board.setPosition(1,2,x);
 			THEN("board.winner should be the winner"){
 				REQUIRE(board.winner() == x);
 			}
